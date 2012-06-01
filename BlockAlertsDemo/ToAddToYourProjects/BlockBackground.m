@@ -173,10 +173,11 @@ static BlockBackground *_sharedInstance = nil;
     else
     {
         ((UIView*)[self.subviews lastObject]).userInteractionEnabled = YES;
+        self.userInteractionEnabled = YES;
     }
 }
 
-- (void)drawRect:(CGRect)rect 
+- (void)drawRect:(CGRect)rect
 {    
     if (_backgroundImage || !_vignetteBackground) return;
     CGContextRef context = UIGraphicsGetCurrentContext();
