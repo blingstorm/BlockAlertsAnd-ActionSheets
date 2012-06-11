@@ -195,4 +195,10 @@ static BlockBackground *_sharedInstance = nil;
 	CGGradientRelease(gradient);
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    // dismiss keyboard when tapped outside keyboard
+    // http://stackoverflow.com/a/5843694/502851
+    [self endEditing:TRUE];
+}
+
 @end

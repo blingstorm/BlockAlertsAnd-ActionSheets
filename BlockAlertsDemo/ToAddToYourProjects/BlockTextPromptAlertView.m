@@ -75,6 +75,7 @@
     
     return self;
 }
+
 - (void)show {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillChange:)
@@ -110,8 +111,8 @@
     __block CGRect frame = _view.frame;
     frame.origin.x = floorf((screenFrame.size.width - frame.size.width) / 2);
     frame.origin.y = floorf((keyboardFrame.origin.y - frame.size.height) / 2);
-    if (frame.origin.y < 0)
-        frame.origin.y = 0;
+    if (frame.origin.y < -15)
+        frame.origin.y = -15;
     if (frame.origin.y != _view.frame.origin.y) {
         [UIView animateWithDuration:
          [[[notification userInfo]objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue]
