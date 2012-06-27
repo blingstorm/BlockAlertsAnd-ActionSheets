@@ -21,5 +21,6 @@
 
 @property (nonatomic) UIImage *backgroundImage;
 @property (nonatomic, readwrite) BOOL vignetteBackground;
+@property (retain) UIWindow *_previousKeyWindow;
 
 @end

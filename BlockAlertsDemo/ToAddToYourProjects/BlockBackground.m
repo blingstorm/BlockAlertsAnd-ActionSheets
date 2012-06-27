@@ -12,6 +12,7 @@
 
 @synthesize backgroundImage = _backgroundImage;
 @synthesize vignetteBackground = _vignetteBackground;
+@synthesize _previousKeyWindow;
 
 static BlockBackground *_sharedInstance = nil;
 
@@ -120,7 +121,7 @@ static BlockBackground *_sharedInstance = nil;
 {
     if (self.hidden)
     {
-        _previousKeyWindow = [[UIApplication sharedApplication] keyWindow];
+        self._previousKeyWindow = [[UIApplication sharedApplication] keyWindow];
         self.alpha = 0.0f;
         self.hidden = NO;
         self.userInteractionEnabled = YES;
@@ -168,7 +169,7 @@ static BlockBackground *_sharedInstance = nil;
     {
         self.hidden = YES;
         [_previousKeyWindow makeKeyWindow];
-        _previousKeyWindow = nil;
+        self._previousKeyWindow = nil;
     }
     else
     {
